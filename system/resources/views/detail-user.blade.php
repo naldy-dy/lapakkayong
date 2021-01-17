@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <!-- hiden navigasi -->
 <!-- end hiden navigasi -->
     <!-- Required meta tags -->
    
+
    @include('section.assets')
 
 
@@ -13,71 +12,35 @@
   </head>
   <body>
     <!-- header -->
+    @include('section.header')
 
-  @include('section.header')
+    <!-- end header -->
+<!-- isi produk !-->
+<div class="container" style="margin-top: 180px">
 
 
-<div class="container-fluid">
-  <div class="head-line my-2">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="ml-3 ">
-          <h5>Produk Terbaru</h5>
+  <div class="row my-5">
+      <div class="col-md-6 pb-3">
+        <div class="detail-box shadow">
+         <img src="{{url("public/$detail->foto")}}" width="50%">
         </div>
+      </div>
+      <div class="col-md-6">
+        <h1>Nama Seller : {{ucwords($detail->nama)}}</h1>
+        <h1>Email : {{ucwords($detail->email)}}</h1>
+        <h1>No Handphone : {{ucwords($detail->detail->no_handphone)}}</h1>
+        <h2>Bergabung Sejak {{$detail->created_at->format("d M Y")}}</h2>
+
       </div>
     </div>
   </div>
+
+
 </div>
 
-<!-- isi -->
-<div class="container-fluid">
-  <div class="row"> 
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-header">
-          Detail Toko
-        </div>
-        <div class="card-body">
-          <table class="table">
-              <tr>
-                <th>Nama Toko</td>
-                <td>:</td>
-                <td>Jaya Sentosa</td>
-              </tr>
-              <tr>
-                <th>Alamat</td>
-                <td>:</td>
-                <td>Sukadana</td>
-              </tr>
-              <tr>
-                <th>Jumlah Produk</td>
-                <td>:</td>
-                <td>45 Unit</td>
-              </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-9 my-3">
-     <a href=""> 
-      <div class="produk-box shadow mb-3 ml-2">
-        <img src="{{url('public')}}/assets/produk/2.jpeg">
-         <div class="p-2">
-            <h4>Nama Produk</h4>
-            <h5>Stock:  Unit</h5>
-            <h5> Ketapang</h5>
-            <h6>Rp. harga</h6>
-         </div>
-      </div>
-     </a> 
-
-    </div>
-  </div>
-</div>
-
+<!-- end isi produk -->
 <!-- footer -->
-
-@include('section.footer')
+    @include('section.footer')
 
 
     <!-- Optional JavaScript -->

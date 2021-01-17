@@ -22,7 +22,7 @@
   <div class="row my-5">
       <div class="col-md-6 pb-3">
         <div class="detail-box shadow">
-        <img src="{{url('/system/storage/'.$detail->foto)}}" width="100%">
+         <img src="{{url("public/$detail->foto")}}" width="100%">
         </div>
       </div>
       <div class="col-md-6">
@@ -35,13 +35,13 @@
         <table class="table">
           <tr>
 
-            <td>Nama Produk</td>
+            <td>Nama Penjual</td>
             <td>{{ucwords($detail->nama)}}</td>
 
           </tr>
           <tr>
             <td>Lokasi Produk</td>
-            <td>{{ucwords($detail->lokasi)}}</td>
+            <td>{{ucwords($detail->no_handphone)}}</td>
           </tr>
           <tr>
             <td>Berat Produk</td>
@@ -58,13 +58,20 @@
           </tr>
           <tr>
             <td>Jumlah Pesanan</td>
-            <td><input type="number" min="1" value="1" class="input-control" name="pesanan"></td>
+            <form action="" method="post">
+               <td><input type="number" min="1" class="input-control" name="pesanan"></td>
+            </form>
+           
           </tr>
     
           <tr>
             <td><a href="" class="btn btn-danger shadow"><img src="{{url('public')}}/assets/icon/keranjang.png" width="20px"> Beli</a>
+              <a href="" class="btn btn-success shadow"><img src="{{url('public')}}/assets/icon/whatsapp.png" width="20px"> Beli Via WhatsApp</a>
             </td>
-            <td></td>
+            <td>
+              <td>
+            </td>
+            </td>
           </tr>
         </table>
       </div>
@@ -72,9 +79,9 @@
 
     <div class="row">
     <div class="col-md-12 container my-3">
-      <div class="head-line shadow">
+      <div class="card-header shadow">
         <div class="ml-3 pt-2 pb-2">
-         <b>Nama Toko :<a href="{{url('detail',)}}"> {{ucwords($detail->seller->nama)}} </a></b>
+         <h3>Nama Toko :<a href="{{url('detail-user',$detail->seller->id)}}"> {{ucwords($detail->seller->nama)}} </a></h3>
         </div>
       </div>
     </div>

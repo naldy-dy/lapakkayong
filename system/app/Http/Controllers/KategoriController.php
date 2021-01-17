@@ -1,7 +1,8 @@
+  
 <?php 
+
 namespace App\Http\Controllers;
 use App\Models\kategori;
-use faker;
  
 
 
@@ -11,7 +12,7 @@ use faker;
  		$data['list_kategori'] = kategori::all();
  		return view('admin.kategori.index', $data);
  	}
- 	function create(){
+ 	function createKategori(){
  		return view('admin.kategori.create-kategori');
  	}
 
@@ -19,7 +20,7 @@ use faker;
  	function insertKategori(){
  		$kategori = new Kategori;
  		$kategori->nama = request('nama');
- 		$kategori->handleUploadFoto();
+ 		$kategori->ikon = request('ikon');
 
  		$kategori->save();
  		return redirect('kategori')->with('success', 'Data Berhasil ditambah');

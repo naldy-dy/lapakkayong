@@ -25,6 +25,7 @@ use App\Models\UserDetail;
  		$user->jenis_kelamin = request('jenis_kelamin');
  		$user->password = bcrypt(request('password'));
  		$user->profil = request('gambar');
+ 		$user->level = request('level');
  		$user->save();
 
  		$userDetail = new UserDetail;

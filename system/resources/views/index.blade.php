@@ -176,21 +176,28 @@
     </div>   
     <div class="col-md-9 my-3">
 
-
-
-  @foreach($list_produk->sortByDesc('id') as $produk)
-     <a href="{{url('detail', $produk->id)}}"> 
-      <div class="produk-box mb-3 ml-2">
-        <img src="{{url("public/$produk->foto")}}" width="100%">
-         <div class="p-2">
-            <h4>{{ucwords($produk->nama)}}</h4>
-            <h5>Stock: {{$produk->stok}} Unit</h5>
-            <h5>Ketapang</h5>
-            <h6>{{$produk->harga}}</h6>
-         </div>
+      @foreach($list_produk->sortByDesc('id') as $produk)
+         <a href="{{url('detail', $produk->id)}}"> 
+          <div class="produk-box mb-3 ml-2">
+            <img src="{{url("public/$produk->foto")}}" width="100%">
+             <div class="p-2">
+                <h4>{{ucwords($produk->nama)}}</h4>
+                <h5>Stock: {{$produk->stok}} Unit</h5>
+                <h5>Ketapang</h5>
+                <h6>{{$produk->harga}}</h6>
+             </div>
+          </div>
+         </a> 
+      @endforeach
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-center">
+            {{$list_produk->links()}}
+          </div>
+        </div>
       </div>
-     </a> 
-  @endforeach
+
+  
 
     </div>
   </div>

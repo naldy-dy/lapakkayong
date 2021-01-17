@@ -48,12 +48,13 @@ use Faker;
  		$produk->berat = request('berat');
  		$produk->diskripsi = request('diskripsi');
  		$produk->lokasi = request('lokasi');
- 		$produk->gambar = request('gambar');
  		$produk->save();
+ 		$produk->handleUploadFoto();
 
- 		return redirect('produk')->with('success', 'Data Berhasil diedit');
+ 		return redirect('admin/produk')->with('success', 'Data Berhasil diedit');
  	}
  	function destroy(Produk $produk){
+ 		$produk->handleDelete();
  		$produk->delete();
  		return redirect('admin/produk')->with('danger', 'Data Berhasil dihapus');
  	}

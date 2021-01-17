@@ -28,7 +28,13 @@
 					<div class="field">
 						<input type="Password" name="password" placeholder="Password" required>
 					</div>
-					<div class="pass-link"><a href="">Forgate Password</a></div>
+				<!-- 	<div class="field">
+						<select name="login_as" class="form-control">
+							<option value="1">Pembeli</option>
+							<option value="2">Penjual</option>
+						</select>
+					</div>
+ -->					<div class="pass-link"><a href="">Forgate Password</a></div>
 					<div class="field btn">
 					<button type="submit" class="tombol" style="border: 0">
 							<a>Login</a>
