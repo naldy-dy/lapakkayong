@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Models\Kategori;
 use Faker;
  
 
@@ -14,7 +15,8 @@ use Faker;
  		return view('admin.produk.index', $data);
  	}
  	function create(){
- 		return view('admin.produk.create');
+ 		$data['list_kategori'] = Kategori::all();
+ 		return view('admin.produk.create',$data);
  	}
  	function store(){
  		$produk = new Produk;
@@ -23,6 +25,7 @@ use Faker;
  		$produk->harga = request('harga');
  		$produk->stok = request('stok');
  		$produk->berat = request('berat');
+ 		$produk->kategori = request('kategori');
  		$produk->diskripsi = request('diskripsi');
  		$produk->lokasi = request('lokasi');
  		$produk->save();

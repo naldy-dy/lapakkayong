@@ -12,7 +12,7 @@
 						<strong>Tambah Data Produk</strong>
 					</div>
 					<div class="card-body container-fluid">
-						<form action="{{url('admin/produk')}}" method="post" enctype="multipart/form-data">
+						<form action="{{url('penjual-produk/create')}}" method="post" enctype="multipart/form-data">
 							@csrf
 							<div class="form-group">
 								<label class="control-label">Nama Produk</label>

@@ -5,8 +5,6 @@ use App\Models\UserDetail;
 use Illuminate\Support\Str;
 
 trait ProdukAttributes{
-
-
 	function getHargaAttribute(){
 		return "Rp. ".number_format($this->attributes['harga']);
 	}

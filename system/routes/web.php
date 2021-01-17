@@ -40,9 +40,10 @@ Route::get('ajaxs', [HomeController:: class,'ajaxs']);
 
 // penjual
 		Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
-		Route::get('penjual-produk', [ProdukPenjualController:: class, 'showProduk']);
+		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
 		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
 		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
+		Route::get('penjual-show/{detail}', [ProdukPenjualController:: class, 'show']);
 		Route::post('produk/filter',[PenjualController:: class,'filter']);
 	
 // prefix----------------------------------------------

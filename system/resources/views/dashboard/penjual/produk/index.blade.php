@@ -65,8 +65,8 @@
 								<td>{{$loop->iteration}}</td>
 								<td>
 									<div class="btn-group form-inline">
-											<a href="{{url('admin/produk', $produk->id)}}" class="btn btn-warning"><i class="fa fa-info"></i></a>
-											<a href="{{url('admin/produk', $produk->id)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
+											<a href="{{url('penjual-show', $produk->id)}}" class="btn btn-warning"><i class="fa fa-info"></i></a>
+											<a href="{{url('dashboard/penjual/produk', $produk->id)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
 										@include('admin.template.utils.delete', ['url' =>url('admin/produk', $produk->id)])
 									</div>
 								</td>

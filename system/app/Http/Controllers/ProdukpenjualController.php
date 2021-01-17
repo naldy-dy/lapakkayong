@@ -32,12 +32,12 @@ use Faker;
  		$produk->handleUploadFoto();
 
  		
- 		return redirect('dashboard/penjual/produk/index')->with('success', 'Data Berhasil ditambah');
+ 		return redirect('penjual-produk')->with('success', 'Data Berhasil ditambah');
  	}
 
  	function show(Produk $produk){
  		$data['produk'] = $produk;
- 		return view('admin.produk.show', $data);
+ 		return view('dashboard.penjual.produk.show', $data);
  	}
  	function edit(Produk $produk){
  		$data['produk'] = $produk;

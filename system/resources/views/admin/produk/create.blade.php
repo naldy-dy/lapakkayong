@@ -18,6 +18,15 @@
 								<label class="control-label">Nama Produk</label>
 								<input type="text" class="form-control" maxlength="50" name="nama" required>
 							</div>
+							<div class="form-group">
+								<label class="control-label">Kategori Produk</label>
+								<select class="form-control" name="kategori">
+									<option>-- Pilih Kategori --</option>
+									@foreach($list_kategori as $kategori)
+									<option value="{{$kategori->nama}}">{{ucwords($kategori->nama)}}</option>
+									@endforeach
+								</select>
+							</div>
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="control-label">Stok Produk</label>
