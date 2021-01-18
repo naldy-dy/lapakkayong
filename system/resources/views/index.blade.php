@@ -176,8 +176,8 @@
     </div>   
     <div class="col-md-9 my-3">
 {{$list_produk->links()}}
-      @foreach($list_produk->sortByDesc('id') as $produk)
-         <a href="{{url('detail', $produk->id)}}"> 
+      @foreach($list_produk->sortByDesc('uuid') as $produk)
+         <a href="{{url('detail', $produk->uuid)}}"> 
           <div class="produk-box mb-3 ml-2">
             <img src="{{url("public/$produk->foto")}}" width="100%">
              <div class="p-2">

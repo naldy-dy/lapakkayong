@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Http\Requests\UserStoreRequest;
 use App\Models\UserDetail;
- 
 
 
  class UserController extends Controller{
@@ -15,7 +15,7 @@ use App\Models\UserDetail;
  	function create(){
  		return view('admin.user.create');
  	}
- 	function store(){
+ 	function store(UserStoreRequest $request){
  		$user = new User;
  		$user->nama = request('nama');
  		$user->username = request('username');
@@ -37,6 +37,8 @@ use App\Models\UserDetail;
  	}
 
  	function show(User $user){
+ 		$loggedUser = request()->user();
+ 		if($loggedUser->id !=$user->id) return abort(404);
  		$data['user'] = $user;
  		return view('admin.user.show', $data);
  	}

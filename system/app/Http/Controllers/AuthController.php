@@ -18,8 +18,8 @@ class AuthController extends Controller{
 		if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
 			$user =  Auth::user();
 			if($user->level == 1) return redirect('admin/beranda')->with('seccess','Login Berhasil');
-			if($user->level == 2) return redirect('penjual-dashboard')->with('seccess','Login Berhasil');
-			if($user->level == 3) return redirect('pembeli-dashboard')->with('seccess','Login Berhasil');
+			if($user->level == 2) return redirect('penjual/penjual-dashboard')->with('seccess','Login Berhasil');
+			if($user->level == 3) return redirect('pembeli/pembeli-dashboard')->with('seccess','Login Berhasil');
 		}else{                           
 			return back()->with('warning', 'Gagal Masuk, Silahan Email dan Password anda');
 		}

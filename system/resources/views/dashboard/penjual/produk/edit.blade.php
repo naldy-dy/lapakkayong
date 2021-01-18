@@ -16,7 +16,7 @@
 						<strong>Tambah Data Produk</strong>
 					</div>
 					<div class="card-body container-fluid">
-						<form action="{{url('penjual-edit', $produk->id)}}" method="post" enctype="multipart/form-data">
+						<form action="{{url('penjual-edit', $produk->uuid)}}" method="post" enctype="multipart/form-data">
 							@csrf
 							@method("PUT")
 							<div class="form-group">

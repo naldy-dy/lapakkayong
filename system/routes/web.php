@@ -44,7 +44,18 @@ Route::get('setting-admin', [SettingController:: class,'index']);
 Route::post('setting-admin', [SettingController:: class,'store']);
 
 // penjual
-		
+Route::prefix('penjual')->middleware('auth:penjual')->group(function(){
+	Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
+		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
+		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
+		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
+		Route::get('penjual-show/{produk}', [ProdukPenjualController:: class, 'show']);
+		Route::get('penjual-edit/{produk}/edit', [ProdukPenjualController:: class, 'edit']);
+		Route::put('penjual-edit/{produk}', [ProdukPenjualController:: class, 'update']);
+		Route::post('penjual-produk/filter',[ProdukPenjualController:: class,'filter']);
+		Route::delete('penjual-delete/{produk}', [ProdukPenjualController:: class, 'destroy']);
+
+		});
 	
 // prefix----------------------------------------------
 Route::prefix('admin')->middleware('auth')->group(function(){
@@ -62,15 +73,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 		Route::resource('user',UserController:: class);
 
 
-		Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
-		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
-		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
-		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
-		Route::get('penjual-show/{produk}', [ProdukPenjualController:: class, 'show']);
-		Route::get('penjual-edit/{produk}/edit', [ProdukPenjualController:: class, 'edit']);
-		Route::put('penjual-edit/{produk}', [ProdukPenjualController:: class, 'update']);
-		Route::post('penjual-produk/filter',[ProdukPenjualController:: class,'filter']);
-		Route::delete('penjual-delete/{produk}', [ProdukPenjualController:: class, 'destroy']);
+		
 
 
 }) ;
