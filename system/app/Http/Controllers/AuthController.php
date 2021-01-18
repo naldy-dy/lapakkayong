@@ -60,8 +60,6 @@ class AuthController extends Controller{
 	
 	function Logout(){
 		Auth::logout();
-		Auth::guard('pembeli')->logout();
-		Auth::guard('penjual')->logout();
 		return redirect('login');
 	}
 
