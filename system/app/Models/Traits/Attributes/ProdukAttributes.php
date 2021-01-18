@@ -5,6 +5,8 @@ use App\Models\UserDetail;
 use Illuminate\Support\Str;
 
 trait ProdukAttributes{
+
+
 	function getHargaAttribute(){
 		return "Rp. ".number_format($this->attributes['harga']);
 	}
@@ -34,7 +36,7 @@ trait ProdukAttributes{
 		$foto= $this->foto;
 		$path = public_path($foto);
 		if(file_exists($path)){
-			// unlink($path);
+			unlink($path);
 		}
 	return true;
 	}

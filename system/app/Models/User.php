@@ -23,5 +23,8 @@ class User extends Authenticatable
     function getJenisKelaminStringAttribute(){
     	return ($this->jenis_kelamin ==1) ?"Laki-Laki" : "Perempuan";
     }
+    function settPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
 
 }

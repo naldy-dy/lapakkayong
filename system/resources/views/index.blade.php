@@ -175,7 +175,7 @@
       </div>
     </div>   
     <div class="col-md-9 my-3">
-
+{{$list_produk->links()}}
       @foreach($list_produk->sortByDesc('id') as $produk)
          <a href="{{url('detail', $produk->id)}}"> 
           <div class="produk-box mb-3 ml-2">
@@ -189,10 +189,11 @@
           </div>
          </a> 
       @endforeach
-      <div class="row">
+
+      <div class="">
         <div class="col-md-12">
           <div class="d-flex justify-content-center">
-            {{$list_produk->links()}}
+          {{$list_produk->links()}}
           </div>
         </div>
       </div>

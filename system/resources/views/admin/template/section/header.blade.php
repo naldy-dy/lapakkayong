@@ -44,13 +44,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <strong class="mr-2">  
                             @if(Auth::check())
-                                {{request()->user()->nama}}
-                            @elseif(Auth::guard('pembeli')->check())
-                                {{Auth::guard('pembeli')->user()->nama}}
-                                ||Pembeli
-                            @elseif(Auth::guard('penjual')->check())
-                                {{Auth::guard('penjual')->user()->nama}}
-                                ||Penjual
+                                {{request()->user()->nama}} || Admin
                             @else
                                 silahkan Login
                             @endif
@@ -62,7 +56,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="{{url('setting')}}"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

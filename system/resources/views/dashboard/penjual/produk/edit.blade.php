@@ -16,12 +16,21 @@
 						<strong>Tambah Data Produk</strong>
 					</div>
 					<div class="card-body container-fluid">
-						<form action="{{url('admin/produk', $produk->id)}}" method="post" enctype="multipart/form-data">
+						<form action="{{url('penjual-edit', $produk->id)}}" method="post" enctype="multipart/form-data">
 							@csrf
 							@method("PUT")
 							<div class="form-group">
 								<label class="control-label">Nama Produk</label>
 								<input type="text" class="form-control" name="nama" value="{{$produk->nama}}" required>
+							</div>
+							<div class="form-group">
+								<label class="control-label">Kategori Produk</label>
+								<select class="form-control" name="kategori">
+									<option>-- Pilih Kategori --</option>
+									@foreach($list_kategori as $kategori)
+									<option value="{{$kategori->nama}}">{{ucwords($kategori->nama)}}</option>
+									@endforeach
+								</select>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">

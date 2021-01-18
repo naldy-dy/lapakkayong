@@ -9,6 +9,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProdukPenjualController;
+use App\Http\Controllers\SettingController;
 
 
 
@@ -38,13 +39,12 @@ Route::post('index',[IndexController:: class,'filterIndex']);
 
 Route::get('ajaxs', [HomeController:: class,'ajaxs']);
 
+// setting kontoler
+Route::get('setting-admin', [SettingController:: class,'index']);
+Route::post('setting-admin', [SettingController:: class,'store']);
+
 // penjual
-		Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
-		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
-		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
-		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
-		Route::get('penjual-show/{detail}', [ProdukPenjualController:: class, 'show']);
-		Route::post('produk/filter',[PenjualController:: class,'filter']);
+		
 	
 // prefix----------------------------------------------
 Route::prefix('admin')->middleware('auth')->group(function(){
@@ -60,6 +60,17 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 		Route::resource('kategori',KategoriController:: class);
 		//user
 		Route::resource('user',UserController:: class);
+
+
+		Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
+		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
+		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
+		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
+		Route::get('penjual-show/{produk}', [ProdukPenjualController:: class, 'show']);
+		Route::get('penjual-edit/{produk}/edit', [ProdukPenjualController:: class, 'edit']);
+		Route::put('penjual-edit/{produk}', [ProdukPenjualController:: class, 'update']);
+		Route::post('penjual-produk/filter',[ProdukPenjualController:: class,'filter']);
+		Route::delete('penjual-delete/{produk}', [ProdukPenjualController:: class, 'destroy']);
 
 
 }) ;

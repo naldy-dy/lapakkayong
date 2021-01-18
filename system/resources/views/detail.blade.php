@@ -21,8 +21,8 @@
 
   <div class="row my-5">
       <div class="col-md-6 pb-3">
-        <div class="detail-box shadow">
-         <img src="{{url("public/$detail->foto")}}" width="100%">
+        <div class="detail-box shadow" style="width: 100%">
+         <img class="img-fluid" src="{{url("public/$detail->foto")}}">
         </div>
       </div>
       <div class="col-md-6">
@@ -66,7 +66,7 @@
     
           <tr>
             <td><a href="" class="btn btn-danger shadow"><img src="{{url('public')}}/assets/icon/keranjang.png" width="20px"> Beli</a>
-              <a href="" class="btn btn-success shadow"><img src="{{url('public')}}/assets/icon/whatsapp.png" width="20px"> Beli Via WhatsApp</a>
+              <a href="" class="btn btn-success shadow" style="float: right;"><img src="{{url('public')}}/assets/icon/whatsapp.png" width="20px"> Beli Via WhatsApp</a>
             </td>
             <td>
               <td>

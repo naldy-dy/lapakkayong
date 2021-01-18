@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Models\User;
+use App\Models\UserDetail;
 use App\Models\Kategori;
 use Faker;
- 
-
 
  class ProdukPenjualController extends Controller{
 
@@ -40,8 +40,9 @@ use Faker;
  		return view('dashboard.penjual.produk.show', $data);
  	}
  	function edit(Produk $produk){
+ 		$data['list_kategori'] = Kategori::all();
  		$data['produk'] = $produk;
- 		return view('admin.produk.edit', $data);
+ 		return view('dashboard.penjual.produk.edit', $data);
 
  	}
  	function update(Produk $produk){
@@ -54,12 +55,12 @@ use Faker;
  		$produk->save();
  		$produk->handleUploadFoto();
 
- 		return redirect('admin/produk')->with('success', 'Data Berhasil diedit');
+ 		return redirect('penjual-produk')->with('success', 'Data Berhasil diedit');
  	}
  	function destroy(Produk $produk){
  		$produk->handleDelete();
  		$produk->delete();
- 		return redirect('admin/produk')->with('danger', 'Data Berhasil dihapus');
+ 		return redirect('penjual-produk')->with('danger', 'Data Berhasil dihapus');
  	}
 
 
@@ -81,7 +82,7 @@ use Faker;
  		$data['list_produk'] = Produk::whereBetween('harga',[$harga_min, $harga_max])->get();  
 
 
- 		return view('admin.produk.index', $data);
+ 		return view('penjual-produk', $data);
  	}
  	
 

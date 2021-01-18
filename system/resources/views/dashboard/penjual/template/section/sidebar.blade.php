@@ -15,9 +15,10 @@
                     <li class="{{checkRouteActive('admin/produk')}}">
                         <a href="{{url('penjual-produk')}}"><i class="fa fa-desktop"></i> Produk</a>
                     </li>
-					<li class="{{checkRouteActive('admin/produk/create')}}">
-                        <a href="{{url('admin/produk/create')}}"><i class="fa fa-bar-chart-o"></i> Jual Produk</a>
+                    <li class="{{checkRouteActive('admin/produk/create')}}">
+                        <a href="{{url('admin/produk/create')}}"><i class="fa fa-bar-chart-o"></i> Pembeli</a>
                     </li>
+                
                 
                 </ul>
 

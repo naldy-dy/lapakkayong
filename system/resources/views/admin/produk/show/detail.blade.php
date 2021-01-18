@@ -6,4 +6,4 @@
 	Seller : {{$produk->seller->nama}}|<br>
 	Tanggal Produksi : {{$produk->created_at->format("d M Y")}} /
 	{{$produk->created_at->diffForHumans()}}
-	p>
+<p>

@@ -66,8 +66,8 @@
 								<td>
 									<div class="btn-group form-inline">
 											<a href="{{url('penjual-show', $produk->id)}}" class="btn btn-warning"><i class="fa fa-info"></i></a>
-											<a href="{{url('dashboard/penjual/produk', $produk->id)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
-										@include('admin.template.utils.delete', ['url' =>url('admin/produk', $produk->id)])
+											<a href="{{url('penjual-edit', $produk->id)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
+										@include('dashboard.penjual.template.utils.delete', ['url' =>url('penjual-delete', $produk->id)])
 									</div>
 								</td>
 								<td>{{$produk->nama}}</td>
