@@ -22,7 +22,7 @@ class HomeController extends Controller{
 	}
 	function ajaxs(){
 		$data ['list_provinsi'] = Provinsi::all();
-		return view('admin.ajaxs', $data);
+		return view('cart', $data);
 	}
 	
 

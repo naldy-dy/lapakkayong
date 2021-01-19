@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 use App\Models\kategori;
 use App\Models\Produk;
 use App\Models\User;
+use App\Models\Pembelian;
 use App\Models\UserDetail;
+use App\Models\Provinsi;
  
 
 
  class IndexController extends Controller{
 
+ 	function cart(){
+ 		
+		$data ['list_provinsi'] = Provinsi::all();
+ 		return view('cart',$data);
+ 	}
  	function showIndex(){
  		$data['list_produk'] = produk::paginate(12);
  		$data['list_kategori'] = kategori::all();

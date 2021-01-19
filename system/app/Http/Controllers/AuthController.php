@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\User;
 
+use App\Models\UserDetail;
+
 
 
 class AuthController extends Controller{
@@ -19,7 +21,7 @@ class AuthController extends Controller{
 			$user =  Auth::user();
 			if($user->level == 1) return redirect('admin/beranda')->with('seccess','Login Berhasil');
 			if($user->level == 2) return redirect('penjual/penjual-dashboard')->with('seccess','Login Berhasil');
-			if($user->level == 3) return redirect('pembeli/pembeli-dashboard')->with('seccess','Login Berhasil');
+			if($user->level == 3) return redirect('/index')->with('seccess','Login Berhasil');
 		}else{                           
 			return back()->with('warning', 'Gagal Masuk, Silahan Email dan Password anda');
 		}
@@ -67,17 +69,25 @@ class AuthController extends Controller{
 			return view('signup');
  	}
  	function prosesRegis(){
- 		$regis = new User;
- 		$regis->nama = request('nama');
- 		$regis->username = request('username');
- 		$regis->email = request('email');
- 		$regis->tmptlahir = request('tmptlahir');
- 		$regis->tgllahir = request('tgllahir');
- 		$regis->password = bcrypt(request('password'));
- 		$regis->profil = request('gambar');
- 		$regis->save();
 
- 		return redirect('signup')->with('success', 'Data Berhasil ditambah');
+ 		$user = new User;
+ 		$user->nama = request('nama');
+ 		$user->username = request('username');
+ 		$user->email = request('email');
+ 		$user->tmptlahir = request('tmptlahir');
+ 		$user->tgllahir = request('tgllahir');
+ 		$user->jenis_kelamin = request('jenis_kelamin');
+ 		$user->password = bcrypt(request('password'));
+ 		$user->profil = request('gambar');
+ 		$user->level = request('level');
+ 		$user->save();
+
+ 		$userDetail = new UserDetail;
+ 		$userDetail->id_user = $user->id;
+ 		$userDetail->no_handphone = request('no_handphone');
+ 		$userDetail->save();
+ 		
+ 		return redirect('login')->with('success', 'Data Berhasil ditambah');
  	}
 
 	function Forgot(){

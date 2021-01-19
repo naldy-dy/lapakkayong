@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
-        <title>SIMADU - 404</title>
+        <title>Lapak Kayong</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
         <link rel="apple-touch-icon" href="pages/ico/60.png">
         <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -37,7 +37,7 @@
                 <img src="https://simadu.politap.ac.id/assets/img/template/AW1237356_06.gif" loop=infinite class="img-fluid">
                 <h1 class="error-number">404</h1>
                 <h2 class="semi-bold">Sepertinya URL yang anda tuju tidak ditemukan</h2>
-                <p class="p-b-10">Silahkan kembali ke <a href="https://simadu.politap.ac.id">halaman sebelumnya</a> <br><a href="mailto:arrazymuhammad@live.com">Atau laporkan hal ini</a></p>
+                <p class="p-b-10">Silahkan kembali ke halaman sebelumnya</a> Atau laporkan hal ini</a></p>
             </div>
         </div>
         <script src="https://simadu.politap.ac.id/assets/plugins/pace/pace.min.js" type="text/javascript"></script>

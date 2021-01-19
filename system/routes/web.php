@@ -17,11 +17,11 @@ use App\Http\Controllers\SettingController;
 Route::get('login',[AuthController:: class, 'showLogin'])->name('login');
 Route::post('login',[AuthController:: class, 'prosesLogin']);
 Route::get('logout',[AuthController:: class, 'logout']);
-Route::get('signup',[AuthController:: class, 'Registrasi']);
-Route::get('signup',[AuthController:: class, 'prosesRegis']);
+Route::get('daftar',[AuthController:: class, 'Registrasi']);
+Route::post('signup',[AuthController:: class, 'prosesRegis']);
 
 
-
+Route::middleware('auth')->group(function(){
 // User
 Route::get('/',[IndexController:: class, 'showIndex']);
 Route::get('/index',[IndexController:: class, 'showIndex']);
@@ -29,15 +29,13 @@ Route::get('/detail',[IndexController:: class, 'showDetail']);
 Route::get('/detail/{detail}',[IndexController:: class, 'showDetail']);
 Route::get('/detail-user/{detail}',[IndexController:: class, 'showDetailUser']);
 
-
-
-
-
+Route::get('cart',[IndexController:: class, 'cart']);
+Route::post('cart',[IndexController:: class, 'store']);
 
 // admin
 Route::post('index',[IndexController:: class,'filterIndex']);
-
-Route::get('ajaxs', [HomeController:: class,'ajaxs']);
+Route::get('cart', [HomeController:: class,'ajaxs']);
+});
 
 // setting kontoler
 Route::get('setting-admin', [SettingController:: class,'index']);
@@ -71,10 +69,6 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 		Route::resource('kategori',KategoriController:: class);
 		//user
 		Route::resource('user',UserController:: class);
-
-
-		
-
 
 }) ;
 // end prefix------------------------------------------

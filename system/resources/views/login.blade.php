@@ -14,7 +14,7 @@
 				Login 
 			</div>
 			<div class="title">
-				<a href="{{url('signup')}}">SignUp </a>
+				<a href="{{url('daftar')}}">SignUp </a>
 			</div>
 		</div> 
 		<div class="form-container">

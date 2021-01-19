@@ -31,7 +31,23 @@
 						<input type="email" name="email" placeholder="Email Address" required>
 					</div>
 					<div class="field">
-						<input type="text" name="tmptlahir" placeholder="Tempat Lahir" >
+						<select class="field" style="border: 2px solid #C53BBA ;padding-top: -10" name="jenis_kelamin">
+							<option class="field" value="1">Laki-Laki</option>
+							<option class="field" value="2">Perempuan</option>
+						</select>
+					</div>
+					<div class="field">
+						<select class="field" style="border: 2px solid #C53BBA ;" name="level">
+							<option class="field" value="2">Penjual</option>
+							<option class="field" value="3">Pembeli</option>
+						</select>
+					</div>
+					
+					<div class="field" style="padding-top: 20px">
+						<input type="number" name="notlp" placeholder="No Telepon" required>
+					</div>
+					<div class="field">
+						<input type="text" name="tmptlahir" placeholder="Tempat Lahir" required>
 					</div>
 					<div class="field">
 						<input type="date" name="tgllahir" placeholder="Tanggallahir" required>

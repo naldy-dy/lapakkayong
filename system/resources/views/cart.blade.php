@@ -21,82 +21,48 @@
 
   <div class="row my-5">
       <div class="col-md-6 pb-3">
-        
-      </div>
-      <div class="col-md-6">
-        <div class="head-line">
-          <div class="ml-3">
-            Detail Produk
-          </div>
+          <div class="row">
+    <div class="col-md-12 mt-5">
+      <div class="card">
+        <div class="card-header">
+          Alamat
         </div>
-        <div class="detail-box shadow" style="width: 100%">
-         <img class="img-fluid" src="{{url("public/$detail->foto")}}">
-        </div>
-
-        <table class="table">
-          <tr>
-
-            <td>Nama Penjual</td>
-            <td>{{ucwords($detail->nama)}}</td>
-
-          </tr>
-          <tr>
-            <td>Lokasi Produk</td>
-            <td>{{ucwords($detail->no_handphone)}}</td>
-          </tr>
-          <tr>
-            <td>Berat Produk</td>
-            <td>{{$detail->berat}} Kg</td>
-          </tr>
-          <tr>
-            <td>Jumlah Produk</td>
-            <td> {{$detail->stok}} Unit</td>
-          </tr>
-
-          <tr>
-            <td>Harga</td>
-            <td style="color: red;font-weight: bold;">{{$detail->harga}}</td>
-          </tr>
-          <tr>
-            <td>Jumlah Pesanan</td>
-            <form action="" method="post">
-               <td><input type="number" min="1" class="input-control" name="pesanan"></td>
-            </form>
-           
-          </tr>
-    
-          <tr>
-            <td><a href="" class="btn btn-danger shadow"><img src="{{url('public')}}/assets/icon/keranjang.png" width="20px"> Beli</a>
-              <a href="" class="btn btn-success shadow" style="float: right;"><img src="{{url('public')}}/assets/icon/whatsapp.png" width="20px"> Beli Via WhatsApp</a>
-            </td>
-            <td>
-              <td>
-            </td>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="row">
-    <div class="col-md-12 container my-3">
-      <div class="card-header shadow">
-        <div class="ml-3 pt-2 pb-2">
-         <h3>Nama Toko :<a href="{{url('detail-user',$detail->seller->id)}}"> {{ucwords($detail->seller->nama)}} </a></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-      <div class="col-md-12 my-5">
-        <div class="card shadow">
         <div class="card-body">
-          <h1 class="my-3">Detail Produk</h1> <hr style="border: 2px solid #c70039;">
-          {!!nl2br($detail->diskripsi)!!}
+          <div class="row" style="width: 100%">
+            <div class="col-md-3">
+                  <label for="" class="control-label">Provinsi</label>
+                  <select name="" class="form-control" onchange="gantiProvinsi(this.value)">
+                    <option value="">Pilih Provinsi</option>  
+                   @foreach($list_provinsi as $provinsi)
+                    <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                   @endforeach 
+                  </select>
+                </div>
+                <div class='col-md-3'>
+                  <label for="" class="control-label">Kabupaten/Kota</label>
+                  <select name="" class="form-control" id="kabupaten" onchange="gantiKabupaten(this.value)" >
+                    <option value="">Pilih Provinsi Terlebih Dahulu</option>
+                  </select>
+                </div>
+                <div class='col-md-3'>
+                  <label for="" class="control-label">Kecamatan</label>
+                  <select name="" class="form-control" id="kecamatan" onchange="gantiKecamatan(this.value)" >
+                     <option value="">Pilih Kabupaten Terlebih Dahulu</option>
+                  </select>
+                </div>
+                <div class='col-md-3'>
+                  <label for="" class="control-label">Desa</label>
+                  <select name="" class="form-control" id="desa">
+                     <option value="">Pilih Kecamatan Terlebih Dahulu</option>
+                  </select>
+                </div>
           </div>
         </div>
       </div>
-  </div>
+    </div>
+
+</div>
+    
 
 
 </div>
@@ -113,3 +79,39 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
 </html>
+
+@push('script')
+   <script>
+     function gantiProvinsi(id){
+        $.get("api/provinsi/"+id, function(result){
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option += `<option value="${item.id}">${item.name}</option>`;
+          }
+          $("#kabupaten").html(option)
+        });
+     }
+
+     function gantiKabupaten(id){
+        $.get("api/kabupaten/"+id, function(result){
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option += `<option value="${item.id}">${item.name}</option>`;
+          }
+          $("#kecamatan").html(option)
+        });
+     }
+
+     function gantiKecamatan(id){
+        $.get("api/kecamatan/"+id, function(result){
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option += `<option value="${item.id}">${item.name}</option>`;
+          }
+          $("#desa").html(option)
+        });
+     }
+   </script>
