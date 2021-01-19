@@ -25,11 +25,15 @@
     <div class="col-md-12 mt-5">
       <div class="card">
         <div class="card-header">
-          Alamat
+          Alamat Pengiriman
         </div>
         <div class="card-body">
           <div class="row" style="width: 100%">
-            <div class="col-md-3">
+            <div class="col-md-12">
+                <label>Nama Penerima</label>
+                <input type="text" class="form-control" name="">
+                <label>No Handpone</label>
+                <input type="text" class="form-control" name="">
                   <label for="" class="control-label">Provinsi</label>
                   <select name="" class="form-control" onchange="gantiProvinsi(this.value)">
                     <option value="">Pilih Provinsi</option>  
@@ -38,26 +42,35 @@
                    @endforeach 
                   </select>
                 </div>
-                <div class='col-md-3'>
+                <div class='col-md-12'>
                   <label for="" class="control-label">Kabupaten/Kota</label>
-                  <select name="" class="form-control" id="kabupaten" onchange="gantiKabupaten(this.value)" >
+                  <select name="" class="form-control" id="kab" onchange="gantiKabupaten(this.value)" >
                     <option value="">Pilih Provinsi Terlebih Dahulu</option>
                   </select>
                 </div>
-                <div class='col-md-3'>
+                <div class='col-md-12'>
                   <label for="" class="control-label">Kecamatan</label>
                   <select name="" class="form-control" id="kecamatan" onchange="gantiKecamatan(this.value)" >
                      <option value="">Pilih Kabupaten Terlebih Dahulu</option>
                   </select>
                 </div>
-                <div class='col-md-3'>
+                <div class='col-md-12'>
                   <label for="" class="control-label">Desa</label>
                   <select name="" class="form-control" id="desa">
                      <option value="">Pilih Kecamatan Terlebih Dahulu</option>
                   </select>
                 </div>
+                 <div class='col-md-12'>
+                  <label for="" class="control-label">Kode POs</label>
+                 <input type="text" name="" class="form-control" placeholder="Kode POS">
+                </div>
+                <div class='col-md-12'>
+                  <label for="" class="control-label">Alamat Lengkap</label>
+                 <textarea class="form-control"></textarea>
+                </div>
+
           </div>
-        </div>
+          </div>
       </div>
     </div>
 
@@ -77,6 +90,28 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.13.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+     <script src="{{url('public')}}/assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="{{url('public')}}/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="{{url('public')}}/assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="{{url('public')}}/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="{{url('public')}}/assets/js/morris/morris.js"></script>
+    <!-- Custom Js -->
+    <script src="{{url('public')}}/assets/js/custom-scripts.js"></script>
+    <!-- dataTabels -->
+    <script src="{{url('public')}}/plugins/datatables/jquery.dataTables.min.js/"></script>
+    <script src="{{url('public')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.bootstrap4.min.js"></script>
+    <!-- summernote -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    @stack('script')
+    <script>
+        $(".table-datatable").DataTable();
+    </script>
   </body>
 </html>
 
@@ -89,7 +124,7 @@
           for(item of result){
             option += `<option value="${item.id}">${item.name}</option>`;
           }
-          $("#kabupaten").html(option)
+          $("#kab").html(option)
         });
      }
 

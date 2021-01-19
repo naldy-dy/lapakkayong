@@ -55,7 +55,7 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label">Foto Profil</label>
-								<input type="file" class="form-control" name="gambar">
+								<input type="file" class="form-control" name="foto">
 							</div>
 							
 							<button class="btn btn-primary float-right" name="simpan"><i class="fa fa-save"></i> Simpan</button>

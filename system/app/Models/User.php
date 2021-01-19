@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\UserDetail;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -26,5 +27,19 @@ class User extends Authenticatable
     function settPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);
     }
+
+        function handleUploadProfil(){
+    
+        if(request()->hasFile('foto')){
+            $foto = request()->file('foto');
+            $destination = "images/profil";
+            $randomStr = Str::random(5);
+            $filename = $this->id."-".time()."-".$randomStr.".".$foto->extension();
+            $url = $foto->storeAs($destination,  $filename);
+            $this->foto = "app/".$url;
+            $this->save();
+        }
+    }
+
 
 }

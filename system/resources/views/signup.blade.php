@@ -53,11 +53,12 @@
 						<input type="date" name="tgllahir" placeholder="Tanggallahir" required>
 					</div>
 					<div class="field">
-						<input type="text" name="password" placeholder="Password Baru" required>
+						<input type="password" name="password" placeholder="Password Baru" required>
 					</div>
-						<button type="submit" class="tombol" style="border: 0">
-							<a>Login</a>
-					
+					<div class="field">
+						<input type="file" name="foto"required>
+					</div>
+						<button type="submit" class="tombol" style="border: 0"><a>Daftar</a>
 					</button>
 					<div class="signup-link">Sudah Punya Akun ? <a href="{{url('login')}}"> LogIn Now</a></div>
 				</form>

@@ -23,14 +23,14 @@ use App\Models\UserDetail;
  		$user->tgllahir = request('tgllahir');
  		$user->jenis_kelamin = request('jenis_kelamin');
  		$user->password = bcrypt(request('password'));
- 		$user->profil = request('gambar');
  		$user->level = request('level');
  		$user->save();
-
+ 		$user->handleUploadProfil();
  		$userDetail = new UserDetail;
  		$userDetail->id_user = $user->id;
  		$userDetail->no_handphone = request('no_handphone');
  		$userDetail->save();
+
  		
  		return redirect('admin/user')->with('success', 'Data Berhasil ditambah');
  	}
@@ -53,7 +53,7 @@ use App\Models\UserDetail;
  		$user->tmptlahir = request('tmptlahir');
  		$user->tgllahir = request('tgllahir');
  		if(request('password')) $user->password = request('password');
- 		$user->profil = request('gambar');
+ 		
  		$user->save();
 
  		return redirect('user')->with('success', 'Data Berhasil diedit');

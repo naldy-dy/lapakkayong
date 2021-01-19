@@ -31,8 +31,7 @@ use Faker;
  		$produk->save();
  		$produk->handleUploadFoto();
 
- 		
- 		return redirect('penjual-produk')->with('success', 'Data Berhasil ditambah');
+ 		return redirect('penjual/penjual-produk')->with('success', 'Data Berhasil ditambah');
  	}
 
  	function show(Produk $produk){
@@ -55,12 +54,12 @@ use Faker;
  		$produk->save();
  		$produk->handleUploadFoto();
 
- 		return redirect('penjual-produk')->with('success', 'Data Berhasil diedit');
+ 		return redirect('penjual/penjual-produk')->with('success', 'Data Berhasil diedit');
  	}
  	function destroy(Produk $produk){
  		$produk->handleDelete();
  		$produk->delete();
- 		return redirect('penjual-produk')->with('danger', 'Data Berhasil dihapus');
+ 		return redirect('penjual/penjual-produk')->with('danger', 'Data Berhasil dihapus');
  	}
 
 
@@ -82,7 +81,7 @@ use Faker;
  		$data['list_produk'] = Produk::whereBetween('harga',[$harga_min, $harga_max])->get();  
 
 
- 		return view('penjual-produk', $data);
+ 		return view('penjual/penjual-produk', $data);
  	}
  	
 

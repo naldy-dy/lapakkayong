@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProdukPenjualController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\PembelianController;
 
 
 
@@ -29,8 +30,8 @@ Route::get('/detail',[IndexController:: class, 'showDetail']);
 Route::get('/detail/{detail}',[IndexController:: class, 'showDetail']);
 Route::get('/detail-user/{detail}',[IndexController:: class, 'showDetailUser']);
 
-Route::get('cart',[IndexController:: class, 'cart']);
-Route::post('cart',[IndexController:: class, 'store']);
+Route::get('cart',[PembelianController:: class, 'cart']);
+Route::post('cart',[PembelianController:: class, 'storePembelian']);
 
 // admin
 Route::post('index',[IndexController:: class,'filterIndex']);
@@ -42,9 +43,9 @@ Route::get('setting-admin', [SettingController:: class,'index']);
 Route::post('setting-admin', [SettingController:: class,'store']);
 
 // penjual
-Route::prefix('penjual')->middleware('auth:penjual')->group(function(){
+Route::prefix('penjual')->middleware('auth')->group(function(){
 	Route::get('penjual-dashboard', [PenjualController:: class, 'showBeranda']);
-		Route::post('penjual-produk/create', [ProdukPenjualController:: class, 'store']);
+		Route::post('penjual-create', [ProdukPenjualController:: class, 'store']);
 		Route::get('penjual-produk', [ProdukPenjualController:: class, 'index']);
 		Route::get('penjual-create', [ProdukPenjualController:: class, 'create']);
 		Route::get('penjual-show/{produk}', [ProdukPenjualController:: class, 'show']);

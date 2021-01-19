@@ -34,9 +34,9 @@
 
         <table class="table">
           <tr>
-
+            <form action="{{url('cart')}}" method="post">
             <td>Nama Penjual</td>
-            <td>{{ucwords($detail->nama)}}</td>
+            <td><input type="text" style="border: none; width: 100%" value="{{ucwords($detail->nama)}}" name="nama_produk" readonly=""></td>
 
           </tr>
           <tr>
@@ -51,21 +51,23 @@
             <td>Jumlah Produk</td>
             <td> {{$detail->stok}} Unit</td>
           </tr>
-
+ 
           <tr>
             <td>Harga</td>
-            <td style="color: red;font-weight: bold;">{{$detail->harga}}</td>
+            <td style="color: red;font-weight: bold; "><input type="text" value="{{$detail->harga}}" style="border: none;" name="harga" readonly=""></td>
           </tr>
           <tr>
             <td>Jumlah Pesanan</td>
-            <form action="" method="post">
-               <td><input type="number" min="1" class="input-control" name="pesanan"></td>
-            </form>
+           
+              @csrf
+               <td><input type="number" min="1" class="input-control" name="jumlah"></td>
+          
            
           </tr>
     
           <tr>
-            <td><a href="" class="btn btn-danger shadow"><img src="{{url('public')}}/assets/icon/keranjang.png" width="20px"> Beli</a>
+            <td><button  class="btn btn-danger"><img src="{{url('public')}}/assets/icon/keranjang.png" width="20px"> Beli</button>
+                </form>
               <a href="" class="btn btn-success shadow" style="float: right;"><img src="{{url('public')}}/assets/icon/whatsapp.png" width="20px"> Beli Via WhatsApp</a>
             </td>
             <td>

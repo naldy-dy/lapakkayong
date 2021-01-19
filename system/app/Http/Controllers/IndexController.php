@@ -12,11 +12,6 @@ use App\Models\Provinsi;
 
  class IndexController extends Controller{
 
- 	function cart(){
- 		
-		$data ['list_provinsi'] = Provinsi::all();
- 		return view('cart',$data);
- 	}
  	function showIndex(){
  		$data['list_produk'] = produk::paginate(12);
  		$data['list_kategori'] = kategori::all();

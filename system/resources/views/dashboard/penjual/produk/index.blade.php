@@ -16,7 +16,7 @@
 			<div class="card-body">
 
 				<!-- Pencarrian -->
-				<form action="{{url('admin/produk/filter')}}" method="post">
+				<form action="{{url('penjual/produk/filter')}}" method="post">
 					@csrf
 					<div class="form-group">
 						<label for="" class="control-label">Nama</label>
@@ -46,7 +46,7 @@
 				<div class="row">
 				<div class="card-header">
 					<strong>Data Produk</strong>
-					<a href="{{url('penjual-create')}}" class="btn btn-sm btn-primary tombol"><i class="fa fa-plus"></i> Tambah Data</a>
+					<a href="{{url('penjual/penjual-create')}}" class="btn btn-sm btn-primary tombol"><i class="fa fa-plus"></i> Tambah Data</a>
 				</div>
 				<div class="card-body">
 					<table class="table table-datatable">
@@ -65,8 +65,8 @@
 								<td>{{$loop->iteration}}</td>
 								<td>
 									<div class="btn-group form-inline">
-											<a href="{{url('penjual-show', $produk->uuid)}}" class="btn btn-warning"><i class="fa fa-info"></i></a>
-											<a href="{{url('penjual-edit', $produk->uuid)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
+											<a href="{{url('penjual/penjual-show', $produk->uuid)}}" class="btn btn-warning"><i class="fa fa-info"></i></a>
+											<a href="{{url('penjual/penjual-edit', $produk->uuid)}}/edit" class="btn btn-danger"><i class="fa fa-edit"></i></a>
 										@include('dashboard.penjual.template.utils.delete', ['url' =>url('penjual-delete', $produk->uuid)])
 									</div>
 								</td>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\Models\User;
-
 use App\Models\UserDetail;
 
 
@@ -78,9 +77,10 @@ class AuthController extends Controller{
  		$user->tgllahir = request('tgllahir');
  		$user->jenis_kelamin = request('jenis_kelamin');
  		$user->password = bcrypt(request('password'));
- 		$user->profil = request('gambar');
+ 		
  		$user->level = request('level');
  		$user->save();
+ 		$user->handleUploadProfil();
 
  		$userDetail = new UserDetail;
  		$userDetail->id_user = $user->id;

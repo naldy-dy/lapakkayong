@@ -44,13 +44,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <strong class="mr-2">  
                             @if(Auth::check())
-                                {{request()->user()->nama}}
-                            @elseif(Auth::guard('pembeli')->check())
-                                {{Auth::guard('pembeli')->user()->nama}}
-                                ||Pembeli
-                            @elseif(Auth::guard('penjual')->check())
-                                {{Auth::guard('penjual')->user()->nama}}
-                                ||Penjual
+                                {{request()->user()->nama}} || Penjual &nbsp;
                             @else
                                 silahkan Login
                             @endif
